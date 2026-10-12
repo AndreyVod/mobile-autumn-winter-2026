@@ -11,3 +11,11 @@
 - Сделал Welcome-экран, при нажатии на кнопку "Начать" переходит в вкладку Счетчик.
 - Подключил Bottom Tabs: Главная / Счетчик / О нас
 - Чем пользовался (ИИ / сам): Использовал ChatGPT, не чтобы он полностью написал мне код, а чтобы написал части кода которые мне нужны и затрудняюсь в реализации.
+
+## Пара 3
+
+- [x] Лаба useState: CounterScreen в Tabs (`SPECS/lab-usestate.md`)
+- [x] Controlled TextInput (`SPECS/lab-textinput.md`)
+- [x] Лаба useEffect: имитация загрузки (`SPECS/lab-useeffect.md`)
+- [x] Просмотр списка постов (`SPECS/lab-posts.md`)
+- [x] Просмотр одного поста (`SPECS/lab-post-view.md`)

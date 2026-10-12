@@ -10,7 +10,7 @@ export default function WelcomeScreen({ navigation }: any) {
 
         <Pressable
           style={styles.button}
-          onPress={() => navigation.navigate("Labs")}
+          onPress={() => navigation.navigate("Счетчик")}
         >
           <Text style={styles.buttonText}>Начать</Text>
         </Pressable>

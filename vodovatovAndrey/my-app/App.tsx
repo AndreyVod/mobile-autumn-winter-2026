@@ -1,14 +1,36 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 
 import WelcomeScreen from "./screens/WelcomeScreen";
 import AboutUsScreen from "./screens/AboutUsScreen";
 import CounterScreen from "./screens/CounterScreen";
+import TextInputScreen from "./screens/TextInputScreen";
+import UseEffectScreen from "./screens/UseEffectScreen";
+import PostsScreen from "./screens/PostsScreen";
+import PostViewScreen from "./screens/PostViewScreen";
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function PostsStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="PostsList"
+        component={PostsScreen}
+        options={{ title: "Посты" }}
+      />
+
+      <Stack.Screen
+        name="PostView"
+        component={PostViewScreen}
+        options={{ title: "Просмотр поста" }}
+      />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -45,6 +67,7 @@ export default function App() {
             ),
           }}
         />
+
         <Tab.Screen
           name="Счетчик"
           component={CounterScreen}
@@ -54,6 +77,41 @@ export default function App() {
             ),
           }}
         />
+
+        <Tab.Screen
+          name="Ввод текста"
+          component={TextInputScreen}
+          options={{
+            title: "Ввод текста",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="text" color={color} size={size} />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="UseEffect"
+          component={UseEffectScreen}
+          options={{
+            title: "UseEffect",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="refresh" color={color} size={size} />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Посты"
+          component={PostsStack}
+          options={{
+            title: "Посты",
+            headerShown: false,
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="list" color={color} size={size} />
+            ),
+          }}
+        />
+
         <Tab.Screen
           name="О нас"
           component={AboutUsScreen}
@@ -67,12 +125,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
